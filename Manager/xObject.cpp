@@ -1,30 +1,24 @@
 /*
  * xObject.cpp
  *
- *  Created on: Mar 23, 2016
+ *  Created on: Apr 7, 2016
  *      Author: kevin
  */
 
-#include <xPointer.h>
-#include <xMemoryManager.h>
-#include <xList.h>
-#include <iostream>
-
-
-
-using namespace std;
+#include "xObject.h"
 
 xMemoryManager xM;
 
-//xObject::xObject(){
-//}
 
-xPointer operator new(int size){
-	xPointer <xObject> ptr;
-	xM.xCalloc(size);
-	ptr = xM.xCalloc(size);
-	return ptr;
+xObject :: xObject() {
+	// TODO Auto-generated constructor stub
+
 }
 
-
-
+xPointer operator new(size_t size){
+	xPointer <xObject> ptr;
+	xM.xCalloc(sizeof this);
+	ptr = xM.xCalloc(sizeof this);
+	//xM.xL.newObject(this);
+	return  ptr;
+}

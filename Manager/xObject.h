@@ -1,24 +1,26 @@
 /*
  * xObject.h
  *
- *  Created on: Mar 23, 2016
+ *  Created on: Apr 7, 2016
  *      Author: kevin
  */
 
 #ifndef XOBJECT_H_
 #define XOBJECT_H_
 
+#include <string>
+#include <iostream>
+#include <typeinfo>
+#include "xMemoryManager.h"
+#include "xPointer.h"
+#include "xList.h"
+
+using namespace std;
+
 class xObject {
 public:
-	//xObject();
-	void* operator new  (int size);
-	long getPtr();
-	void setPtr();
-	char* getClassName();
-	long getId();
-	char* setId();
-private:
-	char* className;
+	xObject();
+	xPointer operator new(size_t size);
 };
 
 #endif /* XOBJECT_H_ */

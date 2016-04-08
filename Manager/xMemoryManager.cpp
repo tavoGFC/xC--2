@@ -1,7 +1,7 @@
 /*
  * xMemoryManager.cpp
  *
- *  Created on: Mar 31, 2016
+ *  Created on: Apr 7, 2016
  *      Author: kevin
  */
 
@@ -10,14 +10,18 @@
 
 xMemoryManager::xMemoryManager() {
 	// TODO Auto-generated constructor stub
-
+	xList list = new xList();
+	xL = list;
 }
 
-void xCalloc(int size){
+void xMemoryManager :: xCalloc(int size){
 	void malloc(size);
 }
 
-void xFree(xPointer *ptr){
-	void free(*ptr);
+void  xFree(xPointer ptr){
+	void free(ptr);
 }
 
+void  xSet(bool num, xPointer ptr){
+
+}
