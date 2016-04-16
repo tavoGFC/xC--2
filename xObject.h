@@ -8,14 +8,19 @@
 #include <iostream>
 #include <string>
 #include <typeinfo>
+#include "xMemoryManager.h"
 
 using namespace std;
 
 class xObject {
+    /**
+     * Atributes of the class xObject
+     */
 public:
     string getClassName();
     xObject();
     virtual ~xObject();
+    xMemoryManager xM;
 };
 
 

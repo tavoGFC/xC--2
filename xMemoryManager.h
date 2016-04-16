@@ -7,13 +7,18 @@
 
 #include <iostream>
 #include "xObject.h"
-
+#include "xList.h"
+/*
+ * Atributes of the class
+ */
 class xMemoryManager {
 public:
     xMemoryManager();
     void xCalloc(int size);
     xObject* Firstptr=NULL;
     xObject* Lastptr=NULL;
+    xObject* Currentptr=NULL;
+    xList list;
 };
 
 
