@@ -15,6 +15,7 @@
  * Retorna el numero de bytes leidos
  * 0 si se cierra fichero
  * -1 si hay algun error
+ * 
  */
 
 int Socket::leerSocket(int fd, char *Datos, int Longitud) {
