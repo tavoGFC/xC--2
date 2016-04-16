@@ -7,6 +7,11 @@
 /**
  * Class template for all the xPointers
  */
+
+/**
+ * overloads of operators
+ */
+
 template <typename T>
 class xPointer {
 private:
@@ -19,12 +24,12 @@ public:
         delete xData;
     }
 
-    T& operator* ()
+    T& operator* ()  //operator * overload
     {
         return *xData;
     }
 
-    T* operator-> ()
+    T* operator-> ()  //operator -> overload
     {
         return xData;
     }
