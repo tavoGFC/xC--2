@@ -7,6 +7,7 @@
 
 #include <iostream>
 #include <string>
+#include "xObject.h"
 
 using namespace std;
 
@@ -14,15 +15,15 @@ class xList {
 public:
     struct node {
         int id;
-        string name;
+        xObject* address;
         struct node *next;
     } *head, *tail, *ptr;
     xList():head(NULL),tail(NULL){}	// constructor
     ~xList();			// destructor
 
-    struct xList::node* searchName(struct xList::node*, string);
+
     struct xList::node* searchId(struct xList::node*, int);
-    struct xList::node* initNode(string, int);
+    struct xList::node* initNode(xObject* , int);
 
     void addNode( struct xList::node*);
     void insertNode( struct xList::node*);

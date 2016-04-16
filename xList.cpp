@@ -15,7 +15,7 @@ xList::~xList() {
     }
 }
 
-struct xList::node* xList::initNode(string s, int i) {
+struct xList::node* xList::initNode(xObject* s, int i) {
     struct node *ptr = new node;
 
     // error? then just return
@@ -24,7 +24,7 @@ struct xList::node* xList::initNode(string s, int i) {
         // assign it
         // then return pointer to ne node
     else {
-        ptr->name = s ;
+        ptr->address = s ;
         ptr->id = i;
         return ptr;
     }
@@ -46,7 +46,9 @@ void xList::addNode( struct node *newNode )  {
     newNode->next = NULL;
     tail = newNode;
 }
-
+/**
+ * This method inserts and existing node
+ */
 void xList::insertNode( struct node *newnode ) {
     struct node *temp, *prev;
 
@@ -59,7 +61,7 @@ void xList::insertNode( struct node *newnode ) {
 
     temp = head;                             // start at beginning of list
     // while currentname < newname
-    while( temp->name < newnode->name) {	    // to be inserted then
+    while( temp->address < newnode->address) {	    // to be inserted then
         temp = temp->next;                // goto the next node in list
         if( temp == NULL )                // don't go past end of list
             break;
@@ -82,15 +84,10 @@ void xList::insertNode( struct node *newnode ) {
     }
 }
 
-struct xList::node* xList::searchName(struct node* ptr, string name) {
-    while( name != ptr->name ) {
-        ptr = ptr->next;
-        if( ptr == NULL )
-            break;
-    }
-    return ptr;
-}
 
+/**
+ * this method search an object in the list via its id
+ */
 struct xList::node* xList::searchId(struct node* ptr, int id) {
     while( id != ptr->id ) {
         ptr = ptr->next;
@@ -100,9 +97,9 @@ struct xList::node* xList::searchId(struct node* ptr, int id) {
     return ptr;
 }
 
-
-
-
+/*
+ * This method deletes an existin node from the list;
+ */
 void xList::deleteNode( struct xList::node *ptr )
 {
     struct node *temp, *prev;
@@ -126,11 +123,16 @@ void xList::deleteNode( struct xList::node *ptr )
     }
 }
 
+/**
+ * This method prints on console the node
+ */
 void xList::displayNode( struct xList::node *ptr ) const
 {
-    cout << ptr->id << ": " << ptr->name << endl;
+    cout << ptr->id << ": " << ptr->address << endl;
 }
-
+/**
+ * This method prints on console the linked list
+ */
 void xList::displayList( struct xList::node *ptr ) const
 {
     if(!ptr) cout << "Nothing to display" << endl;

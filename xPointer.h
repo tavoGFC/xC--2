@@ -4,7 +4,9 @@
 
 #ifndef KEVIN_C_2_XPOINTER_H
 #define KEVIN_C_2_XPOINTER_H
-
+/**
+ * Class template for all the xPointers
+ */
 template <typename T>
 class xPointer {
 private:
